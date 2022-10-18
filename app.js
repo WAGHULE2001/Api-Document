@@ -26,7 +26,7 @@ app.get('/',(req,res) => {
 })
 
 app.get('/products',(req,res) => {
-    db.collection('products').find().toArray((err,result)=> {
+    db.collection('nike_ecommerce').find().toArray((err,result)=> {
         if (err) throw err;
         res.send(result)
     })
@@ -35,7 +35,7 @@ app.get('/products',(req,res) => {
 
 
 app.get('/topstrip',(req,res) => {
-    db.collection('topstrip').find().toArray((err,result)=> {
+    db.collection('nike_ecommerce').find().toArray((err,result)=> {
         if (err) throw err;
         res.send(result)
     })
