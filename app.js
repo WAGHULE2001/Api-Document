@@ -40,6 +40,12 @@ app.get('/topstrip',(req,res) => {
         res.send(result)
     })
 })
+app.get('/listing',(req,res) => {
+    db.collection('listing').find().toArray((err,result)=> {
+        if (err) throw err;
+        res.send(result)
+    })
+})
 
 // connection with mongo
 
