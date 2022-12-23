@@ -47,18 +47,10 @@ app.get('/listing',(req,res) => {
     })
 })
 
-app.post('/register',(req,res) => {
-    var hashedpassword = bcrypt.hashSync(req.body.password,8);
-    User.create({
-        name:req.body.name,
-        email:req.body.email,
-        password:hashedpassword,
-        role:req.body.role?req.body.role:'User'
-    },(err,user) => {
-        if(err) return res.status(500).send("Error in register");
-        res.setHeader('Access-Control-Allow-Origin','*')
-        res.setHeader('Access-Control-Allow-Headers','Origin,X-Requested-With,Content-Type,Accept')
-        res.status(200).send("Registration successful");
+app.get('/register',(req,res) => {
+    db.collection('register').find().toArray((err,result)=> {
+        if (err) throw err;
+        res.send(result)
     })
 })
 
