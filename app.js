@@ -47,7 +47,7 @@ app.get('/listing',(req,res) => {
     })
 })
 
-render.post('/register',(req,res) => {
+router.post('/register',(req,res) => {
     var hashedpassword = bcrypt.hashSync(req.body.password,8);
     User.create({
         name:req.body.name,
